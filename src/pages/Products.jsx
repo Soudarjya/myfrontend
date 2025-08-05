@@ -12,7 +12,6 @@ import { fetchProducts } from '../redux/actions/productAction';
 
 export function Products() {
   const dispatch=useDispatch();
-  const products = useSelector(state => state.product.products); // extract from store
   const [filteredProducts, setfilteredProducts] = useState([]);
 
   // useEffect(() => {
@@ -21,6 +20,7 @@ export function Products() {
 
   // Update filteredProducts whenever products change
   useEffect(() => {
+    const products = useSelector(state => state.product.products); // extract from store
     setfilteredProducts(products || []);
   }, []);
 
