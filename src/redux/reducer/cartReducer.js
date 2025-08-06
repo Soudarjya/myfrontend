@@ -13,7 +13,7 @@ const cartSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase("ADD_TO_CART", (state, action) => {
-        console.log(action.payload);
+        // console.log(action.payload);
         state.cartItems=[...state.cartItems, action.payload];
       }
       )

@@ -7,9 +7,9 @@ export const fetchProducts = () => async (dispatch) => {
                 'Content-Type': 'application/json',
             },
         });
-        console.log(response);
+        // console.log(response);
         const data =await response.data;
-        console.log(data);
+        // console.log(data);
         dispatch({
             type: 'SET_PRODUCTS',
             payload: data,

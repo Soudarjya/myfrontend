@@ -9,7 +9,7 @@ export const addToCart = (productId) => async (dispatch) => {
     // })
     const tokenData = JSON.parse(localStorage.getItem("tok"));
     const token = tokenData?.token;
-    console.log(token);
+    // console.log(token);
     const res = await fetch("https://ecombackend-aih3.onrender.com/api/orders/", {
       method: "POST",
       headers: {
@@ -19,9 +19,9 @@ export const addToCart = (productId) => async (dispatch) => {
       body: JSON.stringify({ productId }),
     });
     const updatedProduct = await res.json();
-    console.log(updatedProduct);
+    // console.log(updatedProduct);
     const items = JSON.parse(localStorage.getItem("cuuxx")) || []; // Get and parse stored items
-    console.log(items);
+    // console.log(items);
     items.push(updatedProduct); // Push to array directly
     localStorage.setItem("cuuxx", JSON.stringify(items)); // Save back to localStorage
     dispatch({
@@ -57,7 +57,7 @@ export const removeFromCart = (productId) => async (dispatch) => {
     //   type: "SET_LOADER",
     //   payload: true,
     // })
-    console.log(productId);
+    // console.log(productId);
     const tokenData = await JSON.parse(localStorage.getItem("tok"));
     const token = await tokenData?.token;
     const res = await fetch("https://ecombackend-aih3.onrender.com/api/orders/remove", {
@@ -69,7 +69,7 @@ export const removeFromCart = (productId) => async (dispatch) => {
       body: JSON.stringify({ productId: productId }),
     });
     const updatedProduct = await res.json();
-    console.log(updatedProduct);
+    // console.log(updatedProduct);
     // const items=localStorage.getItem(JSON.parse("cuuxx"));
     localStorage.setItem("cuuxx", JSON.stringify(updatedProduct)); 
     dispatch({

@@ -2,7 +2,7 @@ import { nav } from "framer-motion/client";
 
 export const signupUser = (userData, navigate) => async (dispatch) => {
   try {
-    console.log(userData); 
+    // console.log(userData); 
     dispatch({ type: "SET_LOADER", payload: true });
     const response = await fetch("https://ecombackend-aih3.onrender.com/api/users/register", {
       method: "POST",
@@ -63,7 +63,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 
         if (!response.ok) {
             dispatch({ type: "SET_LOADER", payload: false });
-            console.log(response);
+            // console.log(response);
             const errorData = await response.json(); // assuming error message is sent as JSON
             throw new Error(errorData.message || 'Something went wrong');
 
@@ -71,7 +71,7 @@ export const loginUser = (email, password) => async (dispatch) => {
             // throw new Error('Invalid Email or Password');
         }
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         localStorage.setItem("cuuxx",JSON.stringify(data.cart));
         localStorage.setItem("tok", JSON.stringify(data));
         dispatch({
@@ -99,7 +99,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 
  export const confirmEmail = (token,navigate) =>async (dispatch) => {
     try {
-    console.log(token);
+    // console.log(token);
       const response = await fetch(`https://ecombackend-aih3.onrender.com/api/users/confirm-email?token=${token}`, {
         method: 'POST', // Sending a GET request to the backend
         headers: {
@@ -115,7 +115,7 @@ export const loginUser = (email, password) => async (dispatch) => {
     const data = await response.json()
     // then(setloading(false));
     // const token=await data.token;
-    console.log(data);
+    // console.log(data);
     localStorage.setItem("tok", JSON.stringify(data));
     localStorage.setItem("cuuxx",JSON.stringify(data.cart));
     dispatch({
@@ -131,7 +131,7 @@ export const loginUser = (email, password) => async (dispatch) => {
         navigate("/");
       }
     } catch (error) {
-      console.log('Error:', error);
+      console.error('Error:', error);
       dispatch({
         type: "SET_SNACKBAR_MESSAGE",
         payload: {

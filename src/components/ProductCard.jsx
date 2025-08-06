@@ -21,21 +21,10 @@ const ProductCard = ({ product }) => {
       try {
         setloading(true);
         dispatch(addToCart(e.target.value));
-        // toast('Item is added to cart', {
-        //   position: "top-right",
-        //   autoClose: 1000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        //   theme: "light",
-        // });
-        // console.log('added');
         setloading(false);
       }
       catch (err) {
-        console.log(err)
+        console.error(err)
       }
     }
     else {

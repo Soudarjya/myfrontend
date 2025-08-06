@@ -23,7 +23,7 @@ function ProductDetail() {
       setProduct(filteredProducts[0]);
       setlaoding(false);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
   useEffect(() => {
